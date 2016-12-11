@@ -27,3 +27,7 @@
    width: 80%;
    background-color: #fff;
 }
+
+.default-hidden {
+  display:none;
+}

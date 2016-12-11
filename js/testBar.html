@@ -1,0 +1,902 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script>
+var femaleData=[
+  {
+    "Row Labels": 15,
+    "Sleep": 586.0238095,
+    "Household Activites": 48.24801587,
+    "Work and Work Related": 17.79365079,
+    "Eating and Drinking": 53.25694444,
+    "Socializing Relaxing and Leisure": 279.7767857,
+    "Telephone Calls": 24.79861111,
+    "Travelling": 69.22123016,
+    "Education": 185.1527778,
+    "Other": 175.7281746
+  },
+  {
+    "Row Labels": 16,
+    "Sleep": 583.936357,
+    "Household Activites": 47.31236284,
+    "Work and Work Related": 41.87637162,
+    "Eating and Drinking": 54.54059985,
+    "Socializing Relaxing and Leisure": 271.3825896,
+    "Telephone Calls": 17.59180688,
+    "Travelling": 73.02633504,
+    "Education": 170.7037308,
+    "Other": 179.6298464
+  },
+  {
+    "Row Labels": 17,
+    "Sleep": 577.5234742,
+    "Household Activites": 48.1400626,
+    "Work and Work Related": 66.7543036,
+    "Eating and Drinking": 54.90766823,
+    "Socializing Relaxing and Leisure": 259.7386541,
+    "Telephone Calls": 14.97026604,
+    "Travelling": 78.42253521,
+    "Education": 168.4593114,
+    "Other": 171.0837246
+  },
+  {
+    "Row Labels": 18,
+    "Sleep": 584.4607219,
+    "Household Activites": 57.59023355,
+    "Work and Work Related": 89.74416136,
+    "Eating and Drinking": 54.07112527,
+    "Socializing Relaxing and Leisure": 284.2961783,
+    "Telephone Calls": 15.12208068,
+    "Travelling": 81.17622081,
+    "Education": 107.5477707,
+    "Other": 165.9915074
+  },
+  {
+    "Row Labels": 19,
+    "Sleep": 583.3880171,
+    "Household Activites": 64.10413695,
+    "Work and Work Related": 129.4365193,
+    "Eating and Drinking": 56.7146933,
+    "Socializing Relaxing and Leisure": 271.5563481,
+    "Telephone Calls": 11.32239658,
+    "Travelling": 77.95720399,
+    "Education": 71.44793153,
+    "Other": 174.0727532
+  },
+  {
+    "Row Labels": 20,
+    "Sleep": 567.3121469,
+    "Household Activites": 74.36158192,
+    "Work and Work Related": 132.8813559,
+    "Eating and Drinking": 56.88983051,
+    "Socializing Relaxing and Leisure": 275.3559322,
+    "Telephone Calls": 8.860169492,
+    "Travelling": 77.84180791,
+    "Education": 60.19491525,
+    "Other": 186.3022599
+  },
+  {
+    "Row Labels": 21,
+    "Sleep": 570.9460916,
+    "Household Activites": 83.12398922,
+    "Work and Work Related": 146.9150943,
+    "Eating and Drinking": 58.07816712,
+    "Socializing Relaxing and Leisure": 262.0795148,
+    "Telephone Calls": 7.788409704,
+    "Travelling": 74.2574124,
+    "Education": 56.28436658,
+    "Other": 180.5269542
+  },
+  {
+    "Row Labels": 22,
+    "Sleep": 568.1395076,
+    "Household Activites": 88.71981243,
+    "Work and Work Related": 159.8065651,
+    "Eating and Drinking": 55.9144197,
+    "Socializing Relaxing and Leisure": 254.2332943,
+    "Telephone Calls": 7.096131301,
+    "Travelling": 71.67174678,
+    "Education": 43.06916764,
+    "Other": 191.3493552
+  },
+  {
+    "Row Labels": 23,
+    "Sleep": 553.6352016,
+    "Household Activites": 94.00688299,
+    "Work and Work Related": 175.9842675,
+    "Eating and Drinking": 58.75811209,
+    "Socializing Relaxing and Leisure": 238.7256637,
+    "Telephone Calls": 6.563421829,
+    "Travelling": 79.94100295,
+    "Education": 34.06588004,
+    "Other": 198.3195674
+  },
+  {
+    "Row Labels": 24,
+    "Sleep": 550.9679421,
+    "Household Activites": 99.56256463,
+    "Work and Work Related": 166.4829369,
+    "Eating and Drinking": 63.05687694,
+    "Socializing Relaxing and Leisure": 244.3019648,
+    "Telephone Calls": 7.327817994,
+    "Travelling": 75.78490176,
+    "Education": 31.90486039,
+    "Other": 200.6101344
+  },
+  {
+    "Row Labels": 25,
+    "Sleep": 550.7938487,
+    "Household Activites": 108.2718204,
+    "Work and Work Related": 158.8545303,
+    "Eating and Drinking": 58.7996675,
+    "Socializing Relaxing and Leisure": 245.0931006,
+    "Telephone Calls": 8.315876974,
+    "Travelling": 73.10141313,
+    "Education": 21.42144638,
+    "Other": 215.3482959
+  },
+  {
+    "Row Labels": 26,
+    "Sleep": 545.5165165,
+    "Household Activites": 108.8896396,
+    "Work and Work Related": 178.6786787,
+    "Eating and Drinking": 61.7042042,
+    "Socializing Relaxing and Leisure": 231.7162162,
+    "Telephone Calls": 6.22972973,
+    "Travelling": 77.92192192,
+    "Education": 23.53378378,
+    "Other": 205.8093093
+  },
+  {
+    "Row Labels": 27,
+    "Sleep": 538.8344924,
+    "Household Activites": 118.9471488,
+    "Work and Work Related": 166.7788595,
+    "Eating and Drinking": 60.84840056,
+    "Socializing Relaxing and Leisure": 232.0528512,
+    "Telephone Calls": 6.830319889,
+    "Travelling": 75.47705146,
+    "Education": 16.79972184,
+    "Other": 223.4311544
+  },
+  {
+    "Row Labels": 28,
+    "Sleep": 541.9317739,
+    "Household Activites": 124.02859,
+    "Work and Work Related": 165.5633528,
+    "Eating and Drinking": 62.02534113,
+    "Socializing Relaxing and Leisure": 229.0500325,
+    "Telephone Calls": 5.552306693,
+    "Travelling": 74.33853151,
+    "Education": 20.40675763,
+    "Other": 217.1033138
+  },
+  {
+    "Row Labels": 29,
+    "Sleep": 540.0057143,
+    "Household Activites": 122.4126984,
+    "Work and Work Related": 164.5574603,
+    "Eating and Drinking": 64.9447619,
+    "Socializing Relaxing and Leisure": 223.2393651,
+    "Telephone Calls": 6.003809524,
+    "Travelling": 73.4431746,
+    "Education": 16.25015873,
+    "Other": 229.1428571
+  },
+  {
+    "Row Labels": 30,
+    "Sleep": 536.8152681,
+    "Household Activites": 128.1293706,
+    "Work and Work Related": 166.7301865,
+    "Eating and Drinking": 63.86946387,
+    "Socializing Relaxing and Leisure": 217.9428904,
+    "Telephone Calls": 5.505827506,
+    "Travelling": 74.02272727,
+    "Education": 13.06701632,
+    "Other": 233.9172494
+  },
+  {
+    "Row Labels": 31,
+    "Sleep": 530.3990281,
+    "Household Activites": 136.2985961,
+    "Work and Work Related": 159.5188985,
+    "Eating and Drinking": 62.95032397,
+    "Socializing Relaxing and Leisure": 215.0680346,
+    "Telephone Calls": 6.1825054,
+    "Travelling": 73.7575594,
+    "Education": 13.52591793,
+    "Other": 242.2991361
+  },
+  {
+    "Row Labels": 32,
+    "Sleep": 526.4139037,
+    "Household Activites": 132.5818182,
+    "Work and Work Related": 163.3165775,
+    "Eating and Drinking": 63.17593583,
+    "Socializing Relaxing and Leisure": 222.1470588,
+    "Telephone Calls": 6.484491979,
+    "Travelling": 75.75882353,
+    "Education": 13.47540107,
+    "Other": 236.6459893
+  },
+  {
+    "Row Labels": 33,
+    "Sleep": 526.061117,
+    "Household Activites": 139.8524763,
+    "Work and Work Related": 159.6401475,
+    "Eating and Drinking": 66.54583772,
+    "Socializing Relaxing and Leisure": 212.2639621,
+    "Telephone Calls": 5.852476291,
+    "Travelling": 75.55532139,
+    "Education": 10.49894626,
+    "Other": 243.7297155
+  },
+  {
+    "Row Labels": 34,
+    "Sleep": 528.2564901,
+    "Household Activites": 146.8634476,
+    "Work and Work Related": 156.5815161,
+    "Eating and Drinking": 65.15576324,
+    "Socializing Relaxing and Leisure": 209.7803738,
+    "Telephone Calls": 5.563343718,
+    "Travelling": 76.07892004,
+    "Education": 9.725856698,
+    "Other": 241.9942887
+  },
+  {
+    "Row Labels": 35,
+    "Sleep": 525.0078947,
+    "Household Activites": 147.3863158,
+    "Work and Work Related": 164.1021053,
+    "Eating and Drinking": 64.26894737,
+    "Socializing Relaxing and Leisure": 209.0473684,
+    "Telephone Calls": 5.870526316,
+    "Travelling": 76.25789474,
+    "Education": 10.51894737,
+    "Other": 237.54
+  },
+  {
+    "Row Labels": 36,
+    "Sleep": 518.4173147,
+    "Household Activites": 152.0927942,
+    "Work and Work Related": 160.9844479,
+    "Eating and Drinking": 65.52669777,
+    "Socializing Relaxing and Leisure": 208.8413686,
+    "Telephone Calls": 6.416277864,
+    "Travelling": 76.22032141,
+    "Education": 9.392431312,
+    "Other": 242.1083463
+  },
+  {
+    "Row Labels": 37,
+    "Sleep": 521.7205737,
+    "Household Activites": 147.6810089,
+    "Work and Work Related": 156.9362018,
+    "Eating and Drinking": 65.8644906,
+    "Socializing Relaxing and Leisure": 215.2403561,
+    "Telephone Calls": 5.504945598,
+    "Travelling": 78.31256182,
+    "Education": 8.920870425,
+    "Other": 239.8189911
+  },
+  {
+    "Row Labels": 38,
+    "Sleep": 515.0884817,
+    "Household Activites": 150.5371728,
+    "Work and Work Related": 174.8293194,
+    "Eating and Drinking": 63.02827225,
+    "Socializing Relaxing and Leisure": 214.734555,
+    "Telephone Calls": 6.097905759,
+    "Travelling": 78.5434555,
+    "Education": 6.590575916,
+    "Other": 230.5502618
+  },
+  {
+    "Row Labels": 39,
+    "Sleep": 515.0040568,
+    "Household Activites": 151.3336714,
+    "Work and Work Related": 174.9041582,
+    "Eating and Drinking": 65.15060852,
+    "Socializing Relaxing and Leisure": 216.6643002,
+    "Telephone Calls": 6.081643002,
+    "Travelling": 78.42444219,
+    "Education": 7.623225152,
+    "Other": 224.8138945
+  },
+  {
+    "Row Labels": 40,
+    "Sleep": 517.9137931,
+    "Household Activites": 155.6739812,
+    "Work and Work Related": 169.5350052,
+    "Eating and Drinking": 64.73876698,
+    "Socializing Relaxing and Leisure": 216.4545455,
+    "Telephone Calls": 6.243991641,
+    "Travelling": 79.52821317,
+    "Education": 6.724137931,
+    "Other": 223.1875653
+  },
+  {
+    "Row Labels": 41,
+    "Sleep": 516.9189189,
+    "Household Activites": 156.8505864,
+    "Work and Work Related": 168.400306,
+    "Eating and Drinking": 65.78837328,
+    "Socializing Relaxing and Leisure": 216.0397756,
+    "Telephone Calls": 6.132585416,
+    "Travelling": 80.3554309,
+    "Education": 8.768995411,
+    "Other": 220.745028
+  },
+  {
+    "Row Labels": 42,
+    "Sleep": 518.6885504,
+    "Household Activites": 160.0793067,
+    "Work and Work Related": 167.2363445,
+    "Eating and Drinking": 63.90966387,
+    "Socializing Relaxing and Leisure": 218.5367647,
+    "Telephone Calls": 6.047794118,
+    "Travelling": 79.72216387,
+    "Education": 6.375,
+    "Other": 219.4044118
+  },
+  {
+    "Row Labels": 43,
+    "Sleep": 518.4404576,
+    "Household Activites": 147.8330733,
+    "Work and Work Related": 181.0379615,
+    "Eating and Drinking": 62.88039522,
+    "Socializing Relaxing and Leisure": 232.8013521,
+    "Telephone Calls": 6.110764431,
+    "Travelling": 79.75923037,
+    "Education": 8.244929797,
+    "Other": 202.8918357
+  },
+  {
+    "Row Labels": 44,
+    "Sleep": 514.2031975,
+    "Household Activites": 158.9762764,
+    "Work and Work Related": 176.4455905,
+    "Eating and Drinking": 62.52759154,
+    "Socializing Relaxing and Leisure": 226.6075297,
+    "Telephone Calls": 7.821041774,
+    "Travelling": 78.56884992,
+    "Education": 9.283135637,
+    "Other": 205.566787
+  },
+  {
+    "Row Labels": 45,
+    "Sleep": 515.7361894,
+    "Household Activites": 158.3641488,
+    "Work and Work Related": 171.1533258,
+    "Eating and Drinking": 65.97970688,
+    "Socializing Relaxing and Leisure": 231.3765502,
+    "Telephone Calls": 8.008455468,
+    "Travelling": 76.95208568,
+    "Education": 8.065952649,
+    "Other": 204.3635851
+  },
+  {
+    "Row Labels": 46,
+    "Sleep": 515.6289871,
+    "Household Activites": 159.9983212,
+    "Work and Work Related": 175.2137661,
+    "Eating and Drinking": 61.48293229,
+    "Socializing Relaxing and Leisure": 240.1113598,
+    "Telephone Calls": 7.950195859,
+    "Travelling": 77.3844432,
+    "Education": 6.095691102,
+    "Other": 196.1343033
+  },
+  {
+    "Row Labels": 47,
+    "Sleep": 520.0054083,
+    "Household Activites": 153.1087074,
+    "Work and Work Related": 175.1622499,
+    "Eating and Drinking": 61.31800973,
+    "Socializing Relaxing and Leisure": 247.1216874,
+    "Telephone Calls": 7.6003245,
+    "Travelling": 77.35640887,
+    "Education": 8.818280151,
+    "Other": 189.5089237
+  },
+  {
+    "Row Labels": 48,
+    "Sleep": 514.5669746,
+    "Household Activites": 153.9566975,
+    "Work and Work Related": 181.3400693,
+    "Eating and Drinking": 63.08775982,
+    "Socializing Relaxing and Leisure": 249.3937644,
+    "Telephone Calls": 7.47517321,
+    "Travelling": 75.44110855,
+    "Education": 5.463048499,
+    "Other": 189.2754042
+  },
+  {
+    "Row Labels": 49,
+    "Sleep": 510.1183908,
+    "Household Activites": 152.2821839,
+    "Work and Work Related": 186.5143678,
+    "Eating and Drinking": 62.28505747,
+    "Socializing Relaxing and Leisure": 248.4522989,
+    "Telephone Calls": 8.918390805,
+    "Travelling": 76.92471264,
+    "Education": 5.502298851,
+    "Other": 189.0022989
+  },
+  {
+    "Row Labels": 50,
+    "Sleep": 516.244325,
+    "Household Activites": 153.8345281,
+    "Work and Work Related": 181.9181601,
+    "Eating and Drinking": 63.74133811,
+    "Socializing Relaxing and Leisure": 258.0764636,
+    "Telephone Calls": 9.480286738,
+    "Travelling": 72.91995221,
+    "Education": 4.997610514,
+    "Other": 178.7873357
+  },
+  {
+    "Row Labels": 51,
+    "Sleep": 512.7790055,
+    "Household Activites": 150.9693063,
+    "Work and Work Related": 193.1835482,
+    "Eating and Drinking": 62.15531001,
+    "Socializing Relaxing and Leisure": 257.111725,
+    "Telephone Calls": 9.003069368,
+    "Travelling": 74.43585021,
+    "Education": 4.362799263,
+    "Other": 175.9993861
+  },
+  {
+    "Row Labels": 52,
+    "Sleep": 509.378213,
+    "Household Activites": 154.6964504,
+    "Work and Work Related": 185.6768666,
+    "Eating and Drinking": 61.45471236,
+    "Socializing Relaxing and Leisure": 266.371481,
+    "Telephone Calls": 8.307833537,
+    "Travelling": 72.39290086,
+    "Education": 4.783353733,
+    "Other": 176.9381885
+  },
+  {
+    "Row Labels": 53,
+    "Sleep": 512.9278607,
+    "Household Activites": 150.0310945,
+    "Work and Work Related": 178.4676617,
+    "Eating and Drinking": 63.95833333,
+    "Socializing Relaxing and Leisure": 265.5136816,
+    "Telephone Calls": 10.90671642,
+    "Travelling": 72.98258706,
+    "Education": 6.371890547,
+    "Other": 178.8401741
+  },
+  {
+    "Row Labels": 54,
+    "Sleep": 511.5366009,
+    "Household Activites": 150.9993635,
+    "Work and Work Related": 173.8535964,
+    "Eating and Drinking": 62.68109484,
+    "Socializing Relaxing and Leisure": 266.3539147,
+    "Telephone Calls": 10.33863781,
+    "Travelling": 74.16804583,
+    "Education": 3.487587524,
+    "Other": 186.5811585
+  },
+  {
+    "Row Labels": 55,
+    "Sleep": 507.5406607,
+    "Household Activites": 145.6658196,
+    "Work and Work Related": 182.8360864,
+    "Eating and Drinking": 64.60292249,
+    "Socializing Relaxing and Leisure": 278.1416773,
+    "Telephone Calls": 10.97649301,
+    "Travelling": 73.04637865,
+    "Education": 4.066709022,
+    "Other": 173.1232529
+  },
+  {
+    "Row Labels": 56,
+    "Sleep": 511.0916079,
+    "Household Activites": 153.5112108,
+    "Work and Work Related": 168.9231262,
+    "Eating and Drinking": 66.33504164,
+    "Socializing Relaxing and Leisure": 284.0038437,
+    "Telephone Calls": 9.208199872,
+    "Travelling": 68.03395259,
+    "Education": 4.058295964,
+    "Other": 174.8347213
+  },
+  {
+    "Row Labels": 57,
+    "Sleep": 509.4956288,
+    "Household Activites": 151.5359785,
+    "Work and Work Related": 167.2488231,
+    "Eating and Drinking": 65.42299933,
+    "Socializing Relaxing and Leisure": 286.1412239,
+    "Telephone Calls": 10.15669132,
+    "Travelling": 72.90248823,
+    "Education": 3.106926698,
+    "Other": 173.9892401
+  },
+  {
+    "Row Labels": 58,
+    "Sleep": 515.7292225,
+    "Household Activites": 161.7117962,
+    "Work and Work Related": 149.3793566,
+    "Eating and Drinking": 64.66689008,
+    "Socializing Relaxing and Leisure": 293.9959786,
+    "Telephone Calls": 10.19839142,
+    "Travelling": 67.3002681,
+    "Education": 3.30227882,
+    "Other": 173.7158177
+  },
+  {
+    "Row Labels": 59,
+    "Sleep": 517.8666667,
+    "Household Activites": 150.4329897,
+    "Work and Work Related": 147.4824742,
+    "Eating and Drinking": 65.72371134,
+    "Socializing Relaxing and Leisure": 301.0742268,
+    "Telephone Calls": 9.766323024,
+    "Travelling": 67.85292096,
+    "Education": 3.397250859,
+    "Other": 176.4034364
+  },
+  {
+    "Row Labels": 60,
+    "Sleep": 513.5793594,
+    "Household Activites": 150.255516,
+    "Work and Work Related": 141.0099644,
+    "Eating and Drinking": 67.99715302,
+    "Socializing Relaxing and Leisure": 302.6761566,
+    "Telephone Calls": 11.74661922,
+    "Travelling": 68.89822064,
+    "Education": 2.115302491,
+    "Other": 181.7217082
+  },
+  {
+    "Row Labels": 61,
+    "Sleep": 517.9087591,
+    "Household Activites": 154.9182482,
+    "Work and Work Related": 121.580292,
+    "Eating and Drinking": 67.4350365,
+    "Socializing Relaxing and Leisure": 318.6985401,
+    "Telephone Calls": 10.59343066,
+    "Travelling": 65.54525547,
+    "Education": 2.752554745,
+    "Other": 180.5678832
+  },
+  {
+    "Row Labels": 62,
+    "Sleep": 517.873956,
+    "Household Activites": 157.2854973,
+    "Work and Work Related": 118.1381929,
+    "Eating and Drinking": 68.83599089,
+    "Socializing Relaxing and Leisure": 316.5687168,
+    "Telephone Calls": 11.25664389,
+    "Travelling": 65.44191344,
+    "Education": 0.94229309,
+    "Other": 183.6567957
+  },
+  {
+    "Row Labels": 63,
+    "Sleep": 514.5399386,
+    "Household Activites": 156.0222734,
+    "Work and Work Related": 94.9546851,
+    "Eating and Drinking": 69.81029186,
+    "Socializing Relaxing and Leisure": 334.3817204,
+    "Telephone Calls": 11.54301075,
+    "Travelling": 68.28341014,
+    "Education": 1.591397849,
+    "Other": 188.8732719
+  },
+  {
+    "Row Labels": 64,
+    "Sleep": 507.1959565,
+    "Household Activites": 166.7682737,
+    "Work and Work Related": 88.47744946,
+    "Eating and Drinking": 68.62674961,
+    "Socializing Relaxing and Leisure": 347.7970451,
+    "Telephone Calls": 13.68273717,
+    "Travelling": 62.44790047,
+    "Education": 1.65007776,
+    "Other": 183.3538103
+  },
+  {
+    "Row Labels": 65,
+    "Sleep": 525.3639818,
+    "Household Activites": 163.8898176,
+    "Work and Work Related": 67.96884498,
+    "Eating and Drinking": 68.41489362,
+    "Socializing Relaxing and Leisure": 350.5015198,
+    "Telephone Calls": 14.45820669,
+    "Travelling": 62.56155015,
+    "Education": 2.436170213,
+    "Other": 184.4050152
+  },
+  {
+    "Row Labels": 66,
+    "Sleep": 525.9094719,
+    "Household Activites": 156.217938,
+    "Work and Work Related": 70.76781224,
+    "Eating and Drinking": 72.04526404,
+    "Socializing Relaxing and Leisure": 350.9111484,
+    "Telephone Calls": 12.44341995,
+    "Travelling": 59.89186924,
+    "Education": 2.136630344,
+    "Other": 189.6764459
+  },
+  {
+    "Row Labels": 67,
+    "Sleep": 526.0466786,
+    "Household Activites": 168.8500898,
+    "Work and Work Related": 51.18761221,
+    "Eating and Drinking": 73.83752244,
+    "Socializing Relaxing and Leisure": 366.2836625,
+    "Telephone Calls": 11.99281867,
+    "Travelling": 59.86086176,
+    "Education": 1.095152603,
+    "Other": 180.8456014
+  },
+  {
+    "Row Labels": 68,
+    "Sleep": 523.6795435,
+    "Household Activites": 164.5373134,
+    "Work and Work Related": 56.01404741,
+    "Eating and Drinking": 70.61281826,
+    "Socializing Relaxing and Leisure": 367.4688323,
+    "Telephone Calls": 12.22563652,
+    "Travelling": 59.51536435,
+    "Education": 2.300263389,
+    "Other": 183.6461809
+  },
+  {
+    "Row Labels": 69,
+    "Sleep": 517.0869131,
+    "Household Activites": 168.4745255,
+    "Work and Work Related": 38.68031968,
+    "Eating and Drinking": 71.08191808,
+    "Socializing Relaxing and Leisure": 383.032967,
+    "Telephone Calls": 12.71428571,
+    "Travelling": 58.01398601,
+    "Education": 1.501498501,
+    "Other": 189.4135864
+  },
+  {
+    "Row Labels": 70,
+    "Sleep": 526.5718816,
+    "Household Activites": 173.3128964,
+    "Work and Work Related": 36.03911205,
+    "Eating and Drinking": 73.64376321,
+    "Socializing Relaxing and Leisure": 379.346723,
+    "Telephone Calls": 14.86469345,
+    "Travelling": 54.13424947,
+    "Education": 1.596194503,
+    "Other": 180.4904863
+  },
+  {
+    "Row Labels": 71,
+    "Sleep": 533.9145946,
+    "Household Activites": 165.2713514,
+    "Work and Work Related": 29.81513514,
+    "Eating and Drinking": 75.70054054,
+    "Socializing Relaxing and Leisure": 386.3145946,
+    "Telephone Calls": 13.21513514,
+    "Travelling": 53.81945946,
+    "Education": 0.761081081,
+    "Other": 181.1881081
+  },
+  {
+    "Row Labels": 72,
+    "Sleep": 523.5463812,
+    "Household Activites": 159.7920489,
+    "Work and Work Related": 31.91029562,
+    "Eating and Drinking": 73.79204893,
+    "Socializing Relaxing and Leisure": 402.6014271,
+    "Telephone Calls": 12.84607543,
+    "Travelling": 53.99388379,
+    "Education": 0.632008155,
+    "Other": 180.8858308
+  },
+  {
+    "Row Labels": 73,
+    "Sleep": 528.787037,
+    "Household Activites": 175.5821759,
+    "Work and Work Related": 25.37268519,
+    "Eating and Drinking": 74.46527778,
+    "Socializing Relaxing and Leisure": 395.8958333,
+    "Telephone Calls": 13.22222222,
+    "Travelling": 51.34375,
+    "Education": 1.613425926,
+    "Other": 173.7175926
+  },
+  {
+    "Row Labels": 74,
+    "Sleep": 533.5826859,
+    "Household Activites": 165.6226415,
+    "Work and Work Related": 18.14872364,
+    "Eating and Drinking": 76.72142064,
+    "Socializing Relaxing and Leisure": 397.991121,
+    "Telephone Calls": 12.96559378,
+    "Travelling": 52.64705882,
+    "Education": 1.115427303,
+    "Other": 181.2053274
+  },
+  {
+    "Row Labels": 75,
+    "Sleep": 534.589525,
+    "Household Activites": 163.0609013,
+    "Work and Work Related": 16.49208283,
+    "Eating and Drinking": 73.4043849,
+    "Socializing Relaxing and Leisure": 421.4652862,
+    "Telephone Calls": 13.44579781,
+    "Travelling": 47.36784409,
+    "Education": 1.135200974,
+    "Other": 169.0389769
+  },
+  {
+    "Row Labels": 76,
+    "Sleep": 524.5446541,
+    "Household Activites": 169.7069182,
+    "Work and Work Related": 11.4327044,
+    "Eating and Drinking": 71.26666667,
+    "Socializing Relaxing and Leisure": 409.0314465,
+    "Telephone Calls": 16.39748428,
+    "Travelling": 48.86666667,
+    "Education": 0.496855346,
+    "Other": 188.2566038
+  },
+  {
+    "Row Labels": 77,
+    "Sleep": 526.0892642,
+    "Household Activites": 165.1145959,
+    "Work and Work Related": 10.81664656,
+    "Eating and Drinking": 75.24004825,
+    "Socializing Relaxing and Leisure": 418.2243667,
+    "Telephone Calls": 14.89746683,
+    "Travelling": 49.32810615,
+    "Education": 1.556091677,
+    "Other": 178.7334138
+  },
+  {
+    "Row Labels": 78,
+    "Sleep": 537.5823606,
+    "Household Activites": 165.4474708,
+    "Work and Work Related": 11.93644617,
+    "Eating and Drinking": 75.49156939,
+    "Socializing Relaxing and Leisure": 414.7263294,
+    "Telephone Calls": 13.94941634,
+    "Travelling": 46.58236057,
+    "Education": 1.498054475,
+    "Other": 172.7859922
+  },
+  {
+    "Row Labels": 79,
+    "Sleep": 536.1765517,
+    "Household Activites": 164.9655172,
+    "Work and Work Related": 8.776551724,
+    "Eating and Drinking": 74.30896552,
+    "Socializing Relaxing and Leisure": 413.2496552,
+    "Telephone Calls": 13.30344828,
+    "Travelling": 47,
+    "Education": 0.751724138,
+    "Other": 181.4675862
+  },
+  {
+    "Row Labels": 80,
+    "Sleep": 544.5348372,
+    "Household Activites": 154.8846374,
+    "Work and Work Related": 6.408623644,
+    "Eating and Drinking": 77.87949743,
+    "Socializing Relaxing and Leisure": 439.7007424,
+    "Telephone Calls": 14.49628784,
+    "Travelling": 38.78983438,
+    "Education": 0.936036551,
+    "Other": 162.3695031
+  },
+  {
+    "Row Labels": 85,
+    "Sleep": 560.5803224,
+    "Household Activites": 136.6303502,
+    "Work and Work Related": 2.737632018,
+    "Eating and Drinking": 83.74485825,
+    "Socializing Relaxing and Leisure": 451.1050584,
+    "Telephone Calls": 13.84269038,
+    "Travelling": 29.78877154,
+    "Education": 1.113396331,
+    "Other": 160.4569205
+  }
+]
+
+
+function getData(age) {
+
+  for(d of femaleData) {
+    if(d["Row Labels"] == age) {
+      return Object.values(d).slice(1);
+    }
+  }
+}
+
+var chart1;
+
+$(function () {
+    chart1= Highcharts.chart('container', {
+        chart: {
+           type:"bar",
+            animation: {
+                duration: 1000
+            }
+        },
+        id:"apple",
+        title: {
+            text: 'Activities By Age'
+        },
+        xAxis: {
+            categories: ['Sleep','Household Activites', 'Work and Work Related','Eating and Drinking',
+            'Socializing Relaxing and Leisure','Telephone Calls','Travelling','Education','Other'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            max:700,
+            title: {
+                text: 'Time (minutes)',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 80,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{ name: 'Age 15',
+            data: getData(15)
+        }]
+    });
+    console.log(chart1);
+
+    $("#control1").change(function() {
+
+      var sliderVal = $("input[type=range]").val();
+
+      var ageData = getData(sliderVal);
+      chart1.series[0].update({name:'Age '+sliderVal});
+      for (i in ageData) {
+        chart1.series[0].data[i].update(ageData[i]);
+      }
+
+    });
+
+});
+
+</script>
+<div class="slider"><input type="range" id="control1" min="15" max="80" value="15" step="1" ></div>
+
+<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
