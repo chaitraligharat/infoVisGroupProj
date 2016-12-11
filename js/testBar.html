@@ -820,17 +820,24 @@ function getData(age) {
   }
 }
 
-var chart1;
+function getFormattedHours(mins) {
+  var hrs = Math.floor(mins/60);
+  var returnStr = "";
+  if (hrs > 0) {
+    returnStr = hrs + " hrs ";
+  }
+  returnStr += Math.floor(mins%60) + " mins";
+  return returnStr;
+}
 
-$(function () {
-    chart1= Highcharts.chart('container', {
+function draw() {
+    var chart1= Highcharts.chart('container', {
         chart: {
-           type:"bar",
+           type:"area",
             animation: {
                 duration: 1000
             }
         },
-        id:"apple",
         title: {
             text: 'Activities By Age'
         },
@@ -843,22 +850,30 @@ $(function () {
         },
         yAxis: {
             min: 0,
-            max:700,
             title: {
                 text: 'Time (minutes)',
                 align: 'high'
             },
             labels: {
-                overflow: 'justify'
+                overflow: 'justify',
             }
         },
         tooltip: {
-            valueSuffix: ' millions'
+            valueSuffix: ' minutes',
+            valueDecimals: 2,
+            formatter: function(){
+              return getFormattedHours(this.y);
+            }
         },
         plotOptions: {
-            bar: {
-                dataLabels: {
-                    enabled: true
+
+            area: {
+                stacking: 'normal',
+                lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#666666'
                 }
             }
         },
@@ -878,7 +893,8 @@ $(function () {
         },
         series: [{ name: 'Age 15',
             data: getData(15)
-        }]
+        },{name:'Age 16',
+      data: getData(16)}]
     });
     console.log(chart1);
 
@@ -894,7 +910,9 @@ $(function () {
 
     });
 
-});
+}
+
+$(draw);
 
 </script>
 <div class="slider"><input type="range" id="control1" min="15" max="80" value="15" step="1" ></div>

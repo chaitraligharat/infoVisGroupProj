@@ -1,97 +1,159 @@
 $(document).ready(function(){
 
   var genders ={f:"Female",m:"Male"}
+  var TYPE = {area:"area",bar:"bar"}
 
   var selectedGender=$("#gender").val();
-  var selectedAge;
+  var selectedAge=$("#age").val();
+
 
   //init
   $("." + selectedGender).show();
+  drawBarChart("vis1");
+
+  // drawTrends("vis2",selectedGender,selectedAge)
 
   //On changing age
   $("#age").change(function(){
-      selectedAge = this.val();
+      selectedAge = $("#age").val();
 
-      $("#section1Control").value=selectedAge;
-      $("#sel-age").value=selectedAge;
+      $("#control1").val(selectedAge);
+      $("#control1").change();
   });
 
   //On changing age
   $("#gender").change(function(){
-      selectedGender = this.val();
+      selectedGender = $("#gender").val();
 
+      $("#control1").change();
       $("#sel-gender").value=genders[selectedGender];
 
-      $(".trends").toggle(false);
-      $("." + selectedGender).toggle(true);
   });
 
-  var graph = drawGraph("vis1", 500, 400);
-  
+
+  function drawBarChart (id) {
+    var data = getWholeData(selectedGender);
+
+    series = getDataForAge(selectedAge, data);
+
+    var vis1 = drawHighChart(id, TYPE.bar, series);
+
+    $("#control1").change(function() {
+
+      data = getWholeData(selectedGender);
+
+      var sliderVal = $("input[type=range]").val();
+
+      var ageData = getDataForAge(sliderVal, data);
+      vis1.series[0].update({name:'Age '+sliderVal});
+
+      for (i in ageData[0].data) {
+        vis1.series[0].data[i].update(ageData[0].data[i]);
+      }
+
+    });
+
+  }
+
+  function getWholeData(selectedGender) {
+    if (selectedGender == "m") {
+      return maleData;
+    }
+    else {
+      return femaleData;
+    }
+  }
+
+  function getDataForAge(age, data) {
+    for(d of data) {
+      if(d["Row Labels"] == age) {
+        var ageStr = 'Age '+age;
+        var d1 = [{name: ageStr, data: Object.values(d).slice(1)}];
+        return d1;
+      }
+    }
+ }
 
 });
 
 
 
-function drawGraph(id, svgWidth, svgHeight) {
-  var graphDIV = d3.select('#' + id)
-  var padding = 20;
-
-  var graphSVG=graphDIV.append('svg')        // create an <svg> element
-      .attr('width', svgWidth) // set its dimentions
-      .attr('height', svgHeight)
-      .attr('class','graph');
-
-     // define the y scale  (vertical)
-        var yScale = d3.scale.linear()
-	        .domain([0, 10])    // values between 0 and 100
-		.range([svgHeight - padding*2, padding]);   // map these to the chart height, less padding.
-                 //REMEMBER: y axis range has the bigger number first because the y value of zero is at the top of chart and increases as you go down.
+function getFormattedHours(mins) {
+  var hrs = Math.floor(mins/60);
+  var returnStr = "";
+  if (hrs > 0) {
+    returnStr = hrs + " hrs ";
+  }
+  returnStr += Math.floor(mins%60) + " mins";
+  return returnStr;
+}
 
 
-        var xScale = d3.scale.linear()
-	        .domain([0, 10])    // values between for month of january
-		.range([padding, svgWidth - padding * 2]);   // map these the the chart width = total width minus padding at both sides
+function drawHighChart(id, type, series) {
+    var chart1= Highcharts.chart(id, {
+        chart: {
+           type:type,
+            animation: {
+                duration: 1000
+            }
+        },
+        id:"apple",
+        title: {
+            text: 'Activities By Age'
+        },
+        xAxis: {
+            categories: ['Sleep','Household Activites', 'Work and Work Related','Eating and Drinking',
+            'Socializing Relaxing and Leisure','Telephone Calls','Travelling','Education','Other'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Time (minutes)',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify',
+            }
+        },
+        tooltip: {
+            valueSuffix: ' minutes',
+            valueDecimals: 2,
+            formatter: function(){
+              return getFormattedHours(this.y);
+            }
+        },
+        plotOptions: {
 
+            area: {
+                stacking: 'normal',
+                lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#666666'
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 80,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: series
+    });
 
-     //Create the Axis
-     var xAxis = d3.svg.axis()
-                        .scale(xScale);
+    return chart1;
 
-
-    // define the y axis
-        var yAxis = d3.svg.axis()
-            .orient("left")
-            .scale(yScale);
-
-        // define the y axis
-        var xAxis = d3.svg.axis()
-            .orient("bottom")
-            .scale(xScale);
-
-        // draw y axis with labels and move in from the size by the amount of padding
-        graphSVG.append("g")
-            .attr("transform", "translate("+padding*2+",0)")
-            .call(yAxis);
-
-        // draw x axis with labels and move to the bottom of the chart area
-        graphSVG.append("g")
-            .attr("class", "xaxis")   // give it a class so it can be used to select only xaxis labels  below
-            .attr("transform", "translate("+padding+"," + (svgHeight - padding*2) + ")")
-            .call(xAxis);
-
-        // now add titles to the axes
-          graphSVG.append("text")
-              .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-              .attr("transform", "translate("+ (padding/2) +","+(svgHeight/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
-              .text("Effort")
-              .attr("class","graph-text");
-
-          graphSVG.append("text")
-              .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-              .attr("transform", "translate("+ (svgWidth/2) +","+(svgHeight-(padding/3))+")")  // centre below axis
-              .text("Salary")
-              .attr("class","graph-text");
-
-    return graphSVG;
 }
