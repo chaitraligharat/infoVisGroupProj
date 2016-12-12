@@ -5,6 +5,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -32,22 +33,27 @@
 
 <!-- Part I: Ease in  -->
     <section class="container">
-      <h2>A Day in the life of an American.</h2>
+      <h2>A Day in the life of an American</h2>
+      <div id="sticky-header">
       <p><br>I am <select id="age">
         <option value="15" selected>15</option>
         </select> years old
         <select id="gender">
           <option value="m" selected>Male</option>
           <option value="f">Female</option>
-        </select>.</p>
-        <div class="row">
-        <div class="col-md-10">
-        <div class="slider"><input type="range" id="control1" min="15" max="80" value="15" step="1" ></div>
-          <div id="vis1">
-          </div>
-        </div>
-
+        </select></p>
       </div>
+        <div class="row">
+          <div class="col-md-12"><div id="vis1">
+          </div></div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 large">Age <span class="pink bold large" id="ageVal"></span></div>
+        <div class="col-md-10">
+          <div class="slider"><input type="range" id="control1" min="15" max="80" value="15" step="1" ></div>
+        </div>
+      </div>
+      <br>
       <!-- Transition to day in life. Circle vis -->
       <p>Now move the slider alond the bar and notice the changes. What happens as you get older? Did you notice any distinctive changes? Where do you fit in
           this spectrum? Does this visualization relate with you or is your life different from an average American?</p><br>

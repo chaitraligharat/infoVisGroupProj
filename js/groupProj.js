@@ -3,6 +3,18 @@
 
 $(document).ready(function(){
 
+  //On scroll, sticky header
+    var header = $("#sticky-header");
+
+    $(window).on("scroll",function(e) {
+      if ($(window).scrollTop() > 635) {
+        header.addClass("top-header");
+      } else {
+        header.removeClass("top-header");
+      }
+
+    });
+
   Highcharts.setOptions({
         colors: ['#4ECDC4','#6AF9C4' ,'#CD7777' , '#9F87AF', '#CAFFB9', '#FF9655','#9F7E69',  '#FF3789','#24CBE5','#FFF263']
     });
@@ -16,9 +28,10 @@ $(document).ready(function(){
 
   var ageTemp = $("#age");
 
+  $("#ageVal").text(selectedAge)
   // populating dropdown age values
   $.each(new Array(65), function(i){
-   
+
     ageTemp.append($("<option />").val(i+16).text(i+16));
 
   });
@@ -69,8 +82,6 @@ $(document).ready(function(){
 
 
 
-
-
   function drawBarChart (id) {
     var data = getWholeData(selectedGender);
 
@@ -94,6 +105,7 @@ $(document).ready(function(){
         vis1.series[0].data[i].update(ageData[0].data[i]);
       }
 
+      $("#ageVal").text(sliderVal);
     });
 
   }
@@ -109,7 +121,7 @@ $(document).ready(function(){
      {
          for(i=0;i<10;i++)
         {
-       
+
           vis2.series[i].show();
       }
      }
@@ -173,7 +185,7 @@ $(document).ready(function(){
            exercise.push(Object.values(d)[9]);
            other.push(Object.values(d)[10]);
 
-        
+
     }
 
 

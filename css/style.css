@@ -35,3 +35,12 @@
 .bold { font-weight: 900;}
 .pink{color: #e5317b;}
 .blue{color: #24cbe5;}
+.large {font-size: 30px;}
+
+.top-header {
+  position: fixed;
+  top: 0;
+  width: 100% ;
+  z-index: 1;
+  background-color: rgba(255,255,255,0.8);
+}
