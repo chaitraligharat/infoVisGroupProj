@@ -31,3 +31,7 @@
 .default-hidden {
   display:none;
 }
+
+.bold { font-weight: 900;}
+.pink{color: #e5317b;}
+.blue{color: #24cbe5;}
