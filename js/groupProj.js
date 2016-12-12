@@ -103,7 +103,7 @@ function drawHighChart(id, type, series) {
         },
         xAxis: {
             categories: ['Sleep','Household Activites', 'Work and Work Related','Eating and Drinking',
-            'Socializing Relaxing and Leisure','Telephone Calls','Travelling','Education','Other'],
+            'Socializing Relaxing and Leisure','Telephone Calls','Travelling','Education','Fitness and Exercise','Other'],
             title: {
                 text: null
             }
