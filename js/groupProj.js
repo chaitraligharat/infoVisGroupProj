@@ -7,7 +7,7 @@ $(document).ready(function(){
     var header = $("#sticky-header");
 
     $(window).on("scroll",function(e) {
-      if ($(window).scrollTop() > 635) {
+      if ($(window).scrollTop() > 525) {
         header.addClass("top-header");
       } else {
         header.removeClass("top-header");
