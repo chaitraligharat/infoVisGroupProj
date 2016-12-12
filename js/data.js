@@ -1,4 +1,4 @@
-var maleData=[
+ var maleData=[
   {
     "Row Labels": 15,
     "Sleep": 599.2328502,
