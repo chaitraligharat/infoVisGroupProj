@@ -41,7 +41,10 @@ $(document).ready(function(){
   //init
   $("." + selectedGender).show();
   drawBarChart("vis1");
-  drawAreaChart("vis2");
+  drawAreaChart("vis2male",'m');
+  drawAreaChart("vis2female",'f');
+  $('#visfemale').hide();
+
 
 
   // drawTrends("vis2",selectedGender,selectedAge)
@@ -59,6 +62,9 @@ $(document).ready(function(){
       selectedGender = $("#gender").val();
       if(selectedGender == "f")
       {
+              
+              $("#vis2female").show();
+              $("#vis2male").hide();
               $("#vis3Female").show();
               $("#vis4Female").show();
               $("#vis3Male").hide();
@@ -68,7 +74,9 @@ $(document).ready(function(){
       }
       else
       {
-               $("#vis3Female").hide();
+              $("#vis2female").hide();
+              $("#vis2male").show();
+              $("#vis3Female").hide();
               $("#vis4Female").hide();
               $("#vis3Male").show();
               $("#vis4Male").show();
@@ -108,10 +116,13 @@ $(document).ready(function(){
       $("#ageVal").text(sliderVal);
     });
 
+
+
   }
 
-    function drawAreaChart (id) {
-    var data = getWholeData(selectedGender);
+    function drawAreaChart (id,sex) {
+    
+    var data = getWholeData(sex);
     var series = formatData(data);
     var vis2 = drawHighChart(id, TYPE.area, series.ser,series.category);
 
@@ -137,7 +148,12 @@ $(document).ready(function(){
 
 
 
+
+
   });
+
+
+
 
  function figureHide(filter)
  {
